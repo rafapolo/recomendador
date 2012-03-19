@@ -133,8 +133,7 @@
           <div>
             <h1>Olá, <strong><%= @user['name'] %></strong> @ <%= @user['work']['employer']['name'] %></strong></h1>
             <p class="tagline">
-              Este é o
-              <a href="<%= @app['@app'] %>"><%= @app['name'] %></a> v0.1
+              Este é o Recomendador v0.1
             </p>
             <div id="share-app">
               <ul>
@@ -179,7 +178,7 @@
                 <li>
                   <a href="#" onclick="window.open('http://www.facebook.com/<%= friend['id']%>')">
                     <img src="https://graph.facebook.com/<%= friend['id'] %>/picture?type=square" alt="<%= friend['name'] %>">
-                    <%= friend['name'] %>
+                    <%= friend['name']} %>
                   </a>
                 </li>
               <% end %>
