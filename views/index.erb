@@ -22,7 +22,7 @@
     <meta property="og:url" content="<%= url %>" />
     <meta property="og:image" content="<%= url('/logo.png') %>" />
     <meta property="og:site_name" content="<%= @app['name'] %>" />
-    <meta property="og:description" content="My First App" />
+    <meta property="og:description" content="Recommender App" />
     <meta property="fb:app_id" content="<%= @app['name'] %>" />
 
     <script type="text/javascript" src="/javascripts/jquery-1.7.1.min.js"></script>
@@ -179,7 +179,7 @@
                 <li>
                   <a href="#" onclick="window.open('http://www.facebook.com/<%= friend['id']%>')">
                     <img src="https://graph.facebook.com/<%= friend['id'] %>/picture?type=square" alt="<%= friend['name'] %>">
-                    <%= "#{friend['name']} | #{friend['work']['employer']['name']}" %>
+                    <%= friend['name'] %>
                   </a>
                 </li>
               <% end %>
@@ -220,7 +220,7 @@
                 <li>
                   <a href="#" onclick="window.open('http://www.facebook.com/<%= friend_result['uid'] %>')">
                     <img src="<%= friend_result['pic_square'] %>" alt="<%= friend_result['name'] %>">
-                    <%= "#{friend_result['name']} | #{friend_result['work']['employer']['name']}" %>
+                    <%= friend_result['name'] %>
                   </a>
                 </li>
               <% end %>
