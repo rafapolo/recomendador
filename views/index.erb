@@ -131,7 +131,7 @@
       <% if @user %>
           <p id="picture" style="background-image: url(https://graph.facebook.com/<%= @user['id'] %>/picture?type=normal)"></p>
           <div>
-            <h1>Olá, <strong><%= @user['name'] %></strong></h1>
+            <h1>Olá, <strong><%= @user['name'] %></strong> @ <%= @user['work']['employer'] %></strong></h1>
             <p class="tagline">
               Este é o
               <a href="<%= @app['@app'] %>"><%= @app['name'] %></a> v0.1
@@ -179,7 +179,7 @@
                 <li>
                   <a href="#" onclick="window.open('http://www.facebook.com/<%= friend['id']%>')">
                     <img src="https://graph.facebook.com/<%= friend['id'] %>/picture?type=square" alt="<%= friend['name'] %>">
-                    <%= "#{friend['name']} | #{friend['work']}" %>
+                    <%= "#{friend['name']} | #{friend['work']['employer']}" %>
                   </a>
                 </li>
               <% end %>
@@ -220,7 +220,7 @@
                 <li>
                   <a href="#" onclick="window.open('http://www.facebook.com/<%= friend_result['uid'] %>')">
                     <img src="<%= friend_result['pic_square'] %>" alt="<%= friend_result['name'] %>">
-                    <%= "#{friend_result['name']} | #{friend_result['work']}" %>
+                    <%= "#{friend_result['name']} | #{friend_result['work']['employer']}" %>
                   </a>
                 </li>
               <% end %>
