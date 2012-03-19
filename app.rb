@@ -5,13 +5,7 @@ enable :sessions
 set :raise_errors, false
 set :show_exceptions, false
 
-# Scope defines what permissions that we are asking the user to grant.
-# In this example, we are asking for the ability to publish stories
-# about using the app, access to what the user likes, and to be able
-# to use their pictures.  You should rewrite this scope with whatever
-# permissions your app needs.
 # See https://developers.facebook.com/docs/reference/api/permissions/
-# for a full list of permissions
 FACEBOOK_SCOPE = 'user_likes,user_photos,user_photo_video_tags'
 
 unless ENV["FACEBOOK_APP_ID"] && ENV["FACEBOOK_SECRET"]
@@ -55,20 +49,17 @@ error(Koala::Facebook::APIError) do
 end
 
 get "/" do
-  # Get base API Connection
   @graph  = Koala::Facebook::API.new(session[:access_token])
-
-  # Get public details of current application
   @app  =  @graph.get_object(ENV["FACEBOOK_APP_ID"])
 
   if session[:access_token]
     @user    = @graph.get_object("me")
     @friends = @graph.get_connections('me', 'friends')
     @photos  = @graph.get_connections('me', 'photos')
-    @likes   = @graph.get_connections('me', 'likes').first(4)
+    @likes   = @graph.get_connections('me', 'likes')
 
     # for other data you can always run fql
-    @friends_using_app = @graph.fql_query("SELECT uid, name, is_app_user, pic_square FROM user WHERE uid in (SELECT uid2 FROM friend WHERE uid1 = me()) AND is_app_user = 1")
+    @friends_using_app = @graph.fql_query("SELECT uid, name, is_app_user, pic_square, work FROM user WHERE uid in (SELECT uid2 FROM friend WHERE uid1 = me()) AND is_app_user = 1")
   end
   erb :index
 end

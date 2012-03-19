@@ -137,7 +137,6 @@
               <a href="<%= @app['@app'] %>"><%= @app['name'] %></a> v0.1
             </p>
             <div id="share-app">
-              <p>Social</p>
               <ul>
                 <li>
                   <a href="#" class="facebook-button" id="postToWall" data-url="<%= url %>">
@@ -180,7 +179,7 @@
                 <li>
                   <a href="#" onclick="window.open('http://www.facebook.com/<%= friend['id']%>')">
                     <img src="https://graph.facebook.com/<%= friend['id'] %>/picture?type=square" alt="<%= friend['name'] %>">
-                    <%= friend['name'] %>
+                    <%= "#{friend['name']} | #{friend['work']}" %>
                   </a>
                 </li>
               <% end %>
@@ -221,7 +220,7 @@
                 <li>
                   <a href="#" onclick="window.open('http://www.facebook.com/<%= friend_result['uid'] %>')">
                     <img src="<%= friend_result['pic_square'] %>" alt="<%= friend_result['name'] %>">
-                    <%= friend_result['name'] %>
+                    <%= "#{friend_result['name']} | #{friend_result['work']}" %>
                   </a>
                 </li>
               <% end %>
