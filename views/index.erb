@@ -133,25 +133,25 @@
           <div>
             <h1>Olá, <strong><%= @user['name'] %></strong></h1>
             <p class="tagline">
-              This is your app
+              Este é o
               <a href="<%= @app['@app'] %>"><%= @app['name'] %></a>
             </p>
             <div id="share-app">
-              <p>Share your app:</p>
+              <p>Social</p>
               <ul>
                 <li>
                   <a href="#" class="facebook-button" id="postToWall" data-url="<%= url %>">
-                    <span class="plus">Post to Wall</span>
+                    <span class="plus">Compartilhar</span>
                   </a>
                 </li>
                 <li>
                   <a href="#" class="facebook-button speech-bubble" id="sendToFriends" data-url="<%= url %>">
-                    <span class="speech-bubble">Send Message</span>
+                    <span class="speech-bubble">Enviar para</span>
                   </a>
                 </li>
                 <li>
                   <a href="#" class="facebook-button apprequests" id="sendRequest" data-message="Test this awesome app">
-                    <span class="apprequests">Send Requests</span>
+                    <span class="apprequests">Convidar pessoas</span>
                   </a>
                 </li>
               </ul>
@@ -159,7 +159,7 @@
           </div>
       <% else %>
         <div>
-          <h1>Olá</h1>
+          <h1>Autentique-se para usar o Recomendador</h1>
             <a href='/auth/facebook' class="fb_button fb_button_medium">
               <span class="fb_button_text">Log In</span>
             </a>
@@ -174,7 +174,7 @@
           <h1>Facebook Graph API</h1>
 
           <div class="list">
-            <h3>Alguns amigos</h3>
+            <h3>Amigos</h3>
             <ul class="friends">
               <% @friends.each do |friend| %>
                 <li>
@@ -188,7 +188,7 @@
           </div>
 
           <div class="list inline">
-            <h3>Imagens</h3>
+            <h3>Imagens recentes</h3>
             <ul class="photos">
               <% @photos.each_with_index do |photo, index| %>
                 <li style="background-image: url(<%= photo['picture'] %>)" class='<%= 'first-column' if (index%4).zero? %>'>
@@ -201,7 +201,7 @@
           </div>
 
           <div class="list">
-            <h3>Likes</h3>
+            <h3>Likes recentes</h3>
             <ul class="things">
               <% @likes.each do |like| %>
                 <li>
@@ -215,7 +215,7 @@
           </div>
 
           <div class="list">
-            <h3>Amigos com este app</h3>
+            <h3>Amigos com o Recomendador</h3>
             <ul class="friends">
               <% @friends_using_app.each do |friend_result| %>
                 <li>
